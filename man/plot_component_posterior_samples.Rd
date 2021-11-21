@@ -2,7 +2,8 @@
 % Please edit documentation in R/new_plot_functions.R
 \name{plot_component_posterior_samples}
 \alias{plot_component_posterior_samples}
-\title{Plot the distribution of raw clusters highly similar as the component in posterior chains}
+\title{Plot the distribution of raw clusters highly similar as the component in posterior chains
+This is to tell for each component, which posterior samples are found to extract this component on each chain}
 \usage{
 plot_component_posterior_samples(components, retval)
 }
@@ -14,4 +15,5 @@ corresponding a component}
 }
 \description{
 Plot the distribution of raw clusters highly similar as the component in posterior chains
+This is to tell for each component, which posterior samples are found to extract this component on each chain
 }

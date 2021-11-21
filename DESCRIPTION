@@ -65,7 +65,6 @@ Collate:
     'aaa-generics-input.R'
     'aaa-generics-output.R'
     'cull_posterior_samples.R'
-    'diagnostic_in_extraction.R'
     'dp_activate.R'
     'dp_freeze.R'
     'extract_components_from_clusters.R'
@@ -74,15 +73,12 @@ Collate:
     'hdp_addconparam.R'
     'hdp_adddp.R'
     'hdp_burnin.R'
-    'hdp_extract_components.R'
     'hdp_merge_and_extract_components.R'
     'hdp_getstate.R'
     'hdp_init.R'
     'hdp_multi_chain.R'
-    'hdp_posterior.R'
     'hdp_posterior_sample.R'
     'hdp_prior_init.R'
-    'hdp_quick_init.R'
     'hdp_setdata.R'
     'interpret_components.R'
     'iterate.R'
@@ -97,4 +93,4 @@ Collate:
     'zzz.R'
 LinkingTo: Rcpp,RcppArmadillo
 VignetteBuilder: knitr
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2

@@ -167,6 +167,7 @@ plot_component_with_credint <-
 
 
 #' Plot the distribution of raw clusters highly similar as the component in posterior chains
+#' This is to tell for each component, which posterior samples are found to extract this component on each chain
 #' @param components  A matrix that containing components with each row corresponding a category and each column
 #'                    corresponding a component
 #'
@@ -180,13 +181,15 @@ plot_component_posterior_samples <- function(components,
     summary.cluster <- retval[[i]][["summary.chain.info"]]
     colnames(summary.cluster) <- c("chain","sample","sequence","exposures")
     cluster.name <- colnames(components)[i]
-    plot.1 <- ggplot2::ggplot(data=summary.cluster, ggplot2::aes(x=sequence, y=sample, group=chain,color=chain)) +
-      ggplot2::geom_point()+ggplot2::ggtitle(paste0(cluster.name," in Gibbs sample")) + ggplot2::xlab("Posterior.Sample") +  ggplot2::ylab("Chain")
+    plot.1 <- ggplot2::ggplot(data=summary.cluster, ggplot2::aes(x=sequence, y=sample, group=chain,color="black")) +
+      ggplot2::geom_point()+ggplot2::ggtitle(paste0(cluster.name," in Gibbs sample")) + ggplot2::xlab("Posterior.Sample") +  ggplot2::ylab("Chain")+
+      scale_y_continuous("chain", labels = as.character(chain), breaks = chain)
     plot(plot.1)
 
-    plot.2 <- ggplot2::ggplot(data=summary.cluster, ggplot2::aes(x=sequence, y=exposures, group=chain,color=chain)) +
-      ggplot2::geom_point()+ggplot2::ggtitle(paste0("exposures of ",cluster.name," in Gibbs sample"))+ ggplot2::xlab("Posterior.Sample") +  ggplot2::ylab("Exposure")
-    plot(plot.2)
+    #This plot is disabled for now because we don't usually need this
+    #plot.2 <- ggplot2::ggplot(data=summary.cluster, ggplot2::aes(x=sequence, y=exposures, group=chain,color=chain)) +
+    #  ggplot2::geom_point()+ggplot2::ggtitle(paste0("exposures of ",cluster.name," in Gibbs sample"))+ ggplot2::xlab("Posterior.Sample") +  ggplot2::ylab("Exposure")
+    #plot(plot.2)
   }
 }
 
