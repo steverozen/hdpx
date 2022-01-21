@@ -144,7 +144,7 @@ extract_components_from_clusters <-  function(x, hc.cutoff = 0.1) {
 
   }
 
-  for(i in 1:nch) {
+  if (FALSE) { for(i in 1:nch) {
 
     test <- mapply(first_merge, ccc_0[[i]],cdc_0[[i]],SIMPLIFY = FALSE)
 
@@ -152,7 +152,7 @@ extract_components_from_clusters <-  function(x, hc.cutoff = 0.1) {
       ccc_0[[i]][[j]] <- test[[j]]$ccc
       cdc_0[[i]][[j]] <- test[[j]]$cdc
     }
-  }
+  } }
 
   ########################################################################
   # Merge nearly identical clusters in one posterior chain.
