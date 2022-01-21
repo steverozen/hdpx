@@ -15,6 +15,7 @@ is.any.slot.negative <- function(object){
 # function to merge cols of a matrix according to new (numeric) column labels
 # ans will be sorted by numeric column name
 merge_cols <- function(mx, labels){
+  mx <- as.matrix(mx) # We sometimes get vectors if the caller has forgotten drop = FALSE
   colnames(mx) <- labels
   num_rows <- nrow(mx)
   # init matrix of 0s with new column names
