@@ -137,17 +137,23 @@ first_merge <- function(ccc, cdc, threshold = 0.99) {
 
 extract_components_from_clusters <-  function(x, hc.cutoff = 0.1) {
   if (class(x)=="hdpSampleChain") {
-    message('Extracting components on single chain.A hdpSampleMulti object is recommended, see ?hdp_multi_chain')
+    message('Extracting components on single chain. A hdpSampleMulti object is recommended, see ?hdp_multi_chain')
     is_multi <- FALSE
   } else if (class(x)=="hdpSampleMulti") {
+    chlist <- x@chains
     is_multi <- TRUE
+  } else if (is.list(x) &&
+             all(unlist(lapply(x, class)) == "hdpSampleChain")) {
+    is_multi <- TRUE
+    chlist <- x
+    x <- hdp_multi_chain(x)
   } else {
-    stop("x must have class hdpSampleChain or hdpSampleMulti")
+    stop("x must have class hdpSampleChain or hdpSampleMulti or be a list of hdpSampleChain")
   }
 
   if (is_multi) {
     # list of hdpSampleChain objects
-    chlist <- x@chains
+    # chlist <- x@chains
     nch <- length(chlist)
 
     # set seed, get final state and number of posterior samples

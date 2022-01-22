@@ -21,10 +21,12 @@ test_that("extract_components_from_clusters-slow-multiF", {
   ex.com.ret.p2 <- ex.com.ret[[6]]@chains[1:10]
   ex.com.ret.p3 <- ex.com.ret[[6]]@chains[11:20]
 
-  # To re-generate test data:
-  # save(ex.com.ret.p1, file = "tdata/output.big.extract.multiF.p1.Rdata")
-  # save(ex.com.ret.p2, file = "tdata/output.big.extract.multiF.p2.Rdata")
-  # save(ex.com.ret.p3, file = "tdata/output.big.extract.multiF.p3.Rdata")
+  if (FALSE) {
+   # To re-generate test data:
+   save(ex.com.ret.p1, file = "tdata/output.big.extract.multiF.p1.Rdata")
+   save(ex.com.ret.p2, file = "tdata/output.big.extract.multiF.p2.Rdata")
+   save(ex.com.ret.p3, file = "tdata/output.big.extract.multiF.p3.Rdata")
+  }
 
   expect_equal(ex.com.ret.p1, reg2$ex.com.ret.p1)
   expect_equal(ex.com.ret.p2, reg2$ex.com.ret.p2)
@@ -35,7 +37,10 @@ test_that("extract_components_from_clusters-slow-multiF", {
 
   in.com.ret <- interpret_components(ex.com.ret)
 
-  # save(in.com.ret, file = "tdata/output.big.interpret.multiF.Rdata")
+  if (FALSE) { # to regenerate test data
+    save(in.com.ret, file = "tdata/output.big.interpret.multiF.Rdata")
+  }
+
   expect_equal(in.com.ret, reg3$in.com.ret)
 })
 
