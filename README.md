@@ -1,15 +1,22 @@
 # hdpx
-R pkg for Hierarchical Dirichlet Process
+R pkg for hierarchical Dirichlet process mixture modeling
 
 
-To install, first ensure `remotes` package is installed and the BioConductor repositories are available (run `setRepositories()`). 
+This package in only supported on Linux systems.
+To install, first ensure that the `remotes` package is installed and the BioConductor repositories 
+are available (run `setRepositories()` and choose the BioC items). 
 It might take a few minutes to download any missing dependencies. 
+To install the latest stable version:
 ```R
-remotes::install_github(repo = "steverozen/hdpx", ref = "master")
+remotes::install_github(repo = "steverozen/hdpx")
 ```
 
+If you want to use this package for mutational signature discovery,
+you probably want to start with https://github.com/steverozen/mSigHdp,
+which calls this package.
+
 Model categorical count data with a hierarchical Dirichlet
-    Process. Includes functions to initialize a HDP with a custom tree
+    process mixture models. Includes functions to initialize a HDP with a custom tree
     structure, perform Gibbs sampling of the posterior distribution,
     and analyse the output. The underlying mathematical theory is
     described by Teh et al. 
@@ -24,10 +31,7 @@ This R package is based on code forked from Nicola Roberts,
     details below).
     Robert's thesis is at
     https://www.repository.cam.ac.uk/bitstream/handle/1810/275454/Roberts-2018-PhD.pdf.
-    
-If you want to use this package for mutational signature discovery,
-you probably want to start with https://github.com/steverozen/mSigHdp,
-which calls this package.
+
     
 Subsequent changes by Rozen and Liu are confined to the R code.
     These include
