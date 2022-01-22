@@ -18,7 +18,7 @@ test_that("extract_components_from_clusters-slow-multiT", {
        envir = reg2)
 
   ex.com.ret <-
-    extract_components_from_clusters(x = in_env$chlist, hc.cutoff = 0.10)
+    extract_components_from_clusters(x = hdp_multi_chain(in_env$chlist), hc.cutoff = 0.10)
   ex.com.ret.p1 <- ex.com.ret[c(1:5,7)]
   ex.com.ret.p2 <- ex.com.ret[[6]]@chains[1:6]
   ex.com.ret.p3 <- ex.com.ret[[6]]@chains[7:13]
@@ -47,6 +47,6 @@ test_that("extract_components_from_clusters-slow-multiT", {
     save(in.com.ret, file = "tdata/output.big.interpret.multiT.Rdata")
   }
 
-    expect_equal(in.com.ret, reg3$in.com.ret)
+  expect_equal(in.com.ret, reg3$in.com.ret)
 })
 
