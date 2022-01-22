@@ -8,15 +8,27 @@ test_that("extract_components_from_clusters-slow-multiF", {
        envir = in_env)
 
   reg2 <- new.env()
-  load("tdata/output.big.extract.multiF.Rdata", envir = reg2)
+  load("tdata/output.big.extract.multiF.p1.Rdata",
+       envir = reg2)
+  load("tdata/output.big.extract.multiF.p2.Rdata",
+       envir = reg2)
+  load("tdata/output.big.extract.multiF.p3.Rdata",
+       envir = reg2)
 
   ex.com.ret <-
     extract_components_from_clusters(x = in_env$chlist, hc.cutoff = 0.10)
+  ex.com.ret.p1 <- ex.com.ret[c(1:5,7)]
+  ex.com.ret.p2 <- ex.com.ret[[6]]@chains[1:10]
+  ex.com.ret.p3 <- ex.com.ret[[6]]@chains[11:20]
 
   # To re-generate test data:
-  # save(ex.com.ret, file = "tdata/output.big.extract.multiF.Rdata")
+  # save(ex.com.ret.p1, file = "tdata/output.big.extract.multiF.p1.Rdata")
+  # save(ex.com.ret.p2, file = "tdata/output.big.extract.multiF.p2.Rdata")
+  # save(ex.com.ret.p3, file = "tdata/output.big.extract.multiF.p3.Rdata")
 
-  expect_equal(ex.com.ret, reg2$ex.com.ret)
+  expect_equal(ex.com.ret.p1, reg2$ex.com.ret.p1)
+  expect_equal(ex.com.ret.p2, reg2$ex.com.ret.p2)
+  expect_equal(ex.com.ret.p3, reg2$ex.com.ret.p3)
 
   reg3 <- new.env()
   load("tdata/output.big.interpret.multiF.Rdata", envir = reg3)
