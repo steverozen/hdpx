@@ -90,6 +90,7 @@ interpret_components <- function(multi.chains.retval,
   low_confidence_components_cdc <-
     components_cdc[, !high.conf.TF, drop = FALSE]
 
+  if (FALSE) { # test if we can remove this without breaking mSigHdp
   #noise components also include components that only occur in one posterior
   #sample of each chain
   low_confidence_components <-
@@ -99,6 +100,7 @@ interpret_components <- function(multi.chains.retval,
   low_confidence_components_cdc <-
     cbind(low_confidence_components_cdc,
           multi.chains.retval$each.chain.noise.cdc)
+  }
 
   return(invisible(list(
     high_confidence_components             = high_confidence_components,
