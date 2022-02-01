@@ -12,10 +12,10 @@ biocViews:
 LazyData: true
 Language: en-US
 Description: Model categorical count data with hierarchical Dirichlet
-    process mixture models. If you want to do mutational signature
+    process (HDP) mixture models. If you want to do mutational signature
     discovery, you probably want to use package mSigHdp, which calls
     this package. This package is only supported on Linux systems.
-    Includes functions to initialise a HDP with a custom tree
+    Includes functions to initialise an HDP model with a custom tree
     structure, perform Gibbs sampling of the posterior distribution,
     and analyse the output. The underlying mathematical theory is
     described by Teh et al. (Hierarchical Dirichlet Processes,
