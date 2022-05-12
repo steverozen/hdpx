@@ -1,7 +1,9 @@
+# [ 1.0.2 ]
+* Fixed a bug in function `extract_components` when there is only one cluster
+
 # [ 1.0.1 ]
 * Simplified interpret_components and extract_components
 * Renamed extract_components_from_clusters to extract_components
-* Fixed a bug in function `extract_components` when there is only one cluster
 
 # [ 0.3.9 ]
 * Removed unused variables from C code
