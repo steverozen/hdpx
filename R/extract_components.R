@@ -265,6 +265,12 @@ extract_components <-  function(x, hc.cutoff = 0.1) {
     }
   }
 
+  if (ncol(dataframe) == 1) {
+    dataframe <- cbind(dataframe, dataframe)
+    stats.dataframe <- rbind(stats.dataframe, stats.dataframe)
+    dp.dataframe <- cbind(dp.dataframe, dp.dataframe)
+  }
+
   dataframe.normed <- apply(dataframe,2,function(x)x/sum(x))
   cosine.dist.df <- parallelDist::parallelDist(t(dataframe.normed),method = "cosine")
 
