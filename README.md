@@ -1,4 +1,8 @@
 # hdpx
+<!-- badges: start -->
+  [![R-CMD-check](https://github.com/steverozen/hdpx/workflows/R-CMD-check/badge.svg)](https://github.com/steverozen/hdpx/actions)
+  <!-- badges: end -->
+  
 R pkg for hierarchical Dirichlet process mixture modeling
 
 This package in only supported on Linux systems.
