@@ -2,6 +2,8 @@
 #include "R-utils.h"
 #include "moreutils.h"
 
+int DEBUG;
+
 SEXP rReadListElement(const SEXP list, const char *str) {
   SEXP elmt = R_NilValue;
   SEXP names = getAttrib(list, R_NamesSymbol);
