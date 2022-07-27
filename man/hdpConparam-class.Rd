@@ -18,9 +18,9 @@ hdpConparam class for the DP concentration parameter/s
 }
 \section{Methods (by generic)}{
 \itemize{
-\item \code{as.list}: convert to list class
-}}
+\item \code{as.list(hdpConparam)}: convert to list class
 
+}}
 \section{Slots}{
 
 \describe{

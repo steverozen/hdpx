@@ -18,9 +18,9 @@ hdpBase class for the base distribution
 }
 \section{Methods (by generic)}{
 \itemize{
-\item \code{as.list}: convert to list class
-}}
+\item \code{as.list(hdpBase)}: convert to list class
 
+}}
 \section{Slots}{
 
 \describe{

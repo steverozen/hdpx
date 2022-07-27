@@ -94,4 +94,4 @@ Collate:
     'xmake.s.R'
     'zzz.R'
 LinkingTo: Rcpp,RcppArmadillo
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1

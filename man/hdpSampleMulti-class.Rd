@@ -43,25 +43,25 @@ hdpSampleMulti class for multiple independent hdpSampleChain objects for the sam
 }
 \section{Methods (by generic)}{
 \itemize{
-\item \code{as.list}: Convert to list class
+\item \code{as.list(hdpSampleMulti)}: Convert to list class
 
-\item \code{chains}: Get list of hdpSampleChain objects
+\item \code{chains(hdpSampleMulti)}: Get list of hdpSampleChain objects
 
-\item \code{numcomp}: Get number of extracted components for hdpSampleMulti
+\item \code{numcomp(hdpSampleMulti)}: Get number of extracted components for hdpSampleMulti
 
-\item \code{prop.ex}: Get proportion of dataset explained (on average) for hdpSampleMulti
+\item \code{prop.ex(hdpSampleMulti)}: Get proportion of dataset explained (on average) for hdpSampleMulti
 
-\item \code{comp_cos_merge}: Get cos.merge setting for hdpSampleMulti
+\item \code{comp_cos_merge(hdpSampleMulti)}: Get cos.merge setting for hdpSampleMulti
 
-\item \code{comp_categ_counts}: Get sample vs category counts for each component
+\item \code{comp_categ_counts(hdpSampleMulti)}: Get sample vs category counts for each component
 
-\item \code{comp_dp_counts}: Get sample vs component counts for each DP
+\item \code{comp_dp_counts(hdpSampleMulti)}: Get sample vs component counts for each DP
 
-\item \code{comp_categ_distn}: Get mean distribution over data categories for each component
+\item \code{comp_categ_distn(hdpSampleMulti)}: Get mean distribution over data categories for each component
 
-\item \code{comp_dp_distn}: Get mean distribution over components for each DP
+\item \code{comp_dp_distn(hdpSampleMulti)}: Get mean distribution over components for each DP
+
 }}
-
 \section{Slots}{
 
 \describe{

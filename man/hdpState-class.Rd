@@ -66,34 +66,34 @@ hdpState class for a Hierarchical Dirichlet Process in one state
 }
 \section{Methods (by generic)}{
 \itemize{
-\item \code{as.list}: Convert to list class
+\item \code{as.list(hdpState)}: Convert to list class
 
-\item \code{numdp}: Get number of DPs
+\item \code{numdp(hdpState)}: Get number of DPs
 
-\item \code{numconparam}: Get number of concentration parameters
+\item \code{numconparam(hdpState)}: Get number of concentration parameters
 
-\item \code{base}: Get base distribution
+\item \code{base(hdpState)}: Get base distribution
 
-\item \code{conparam}: Get list of concentration parameters
+\item \code{conparam(hdpState)}: Get list of concentration parameters
 
-\item \code{dp}: Get list of DP nodes
+\item \code{dp(hdpState)}: Get list of DP nodes
 
-\item \code{dpstate}: Get state of every DP
+\item \code{dpstate(hdpState)}: Get state of every DP
 
-\item \code{ppindex}: Get parent process index of every DP
+\item \code{ppindex(hdpState)}: Get parent process index of every DP
 
-\item \code{cpindex}: Get concentration parameter index of every DP
+\item \code{cpindex(hdpState)}: Get concentration parameter index of every DP
 
-\item \code{numcateg}: Get number of data categories
+\item \code{numcateg(hdpState)}: Get number of data categories
 
-\item \code{base_params}: Get parameters of the base Dirichlet distribution (like psuedocounts across categories).
+\item \code{base_params(hdpState)}: Get parameters of the base Dirichlet distribution (like psuedocounts across categories).
 
-\item \code{activating_seed}: Get seed used to initialse clustering
+\item \code{activating_seed(hdpState)}: Get seed used to initialse clustering
 
-\item \code{pseudoDP}: Get index of frozen pseudo-data DP nodes for prior info
+\item \code{pseudoDP(hdpState)}: Get index of frozen pseudo-data DP nodes for prior info
 (only if initialised via hdp_prior_init)
-}}
 
+}}
 \section{Slots}{
 
 \describe{

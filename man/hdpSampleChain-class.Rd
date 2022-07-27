@@ -71,39 +71,39 @@ hdpSampleChain class for posterior samples off one MCMC chain
 }
 \section{Methods (by generic)}{
 \itemize{
-\item \code{as.list}: Convert to list class
+\item \code{as.list(hdpSampleChain)}: Convert to list class
 
-\item \code{sampling_seed}: Get random seed used by \code{hdp_posterior}
+\item \code{sampling_seed(hdpSampleChain)}: Get random seed used by \code{hdp_posterior}
 
-\item \code{hdp_settings}: Get settings of posterior sampling chain
+\item \code{hdp_settings(hdpSampleChain)}: Get settings of posterior sampling chain
 
-\item \code{final_hdpState}: Get hdpState object from the end of the posterior sampling chain
+\item \code{final_hdpState(hdpSampleChain)}: Get hdpState object from the end of the posterior sampling chain
 
-\item \code{lik}: Get likelihood of data given model over all iterations
+\item \code{lik(hdpSampleChain)}: Get likelihood of data given model over all iterations
 
-\item \code{numcluster}: Get the number of clusters for each posterior sample
+\item \code{numcluster(hdpSampleChain)}: Get the number of clusters for each posterior sample
 
-\item \code{cp_values}: Get matrix of concentration parameter values for each posterior sample
+\item \code{cp_values(hdpSampleChain)}: Get matrix of concentration parameter values for each posterior sample
 
-\item \code{clust_categ_counts}: Get category vs cluster counts for each posterior sample
+\item \code{clust_categ_counts(hdpSampleChain)}: Get category vs cluster counts for each posterior sample
 
-\item \code{clust_dp_counts}: Get dp node vs cluster counts for each posterior sample
+\item \code{clust_dp_counts(hdpSampleChain)}: Get dp node vs cluster counts for each posterior sample
 
-\item \code{numcomp}: Get number of extracted components for hdpSampleChain
+\item \code{numcomp(hdpSampleChain)}: Get number of extracted components for hdpSampleChain
 
-\item \code{prop.ex}: Get proportion of dataset explained (on average) for hdpSampleChain
+\item \code{prop.ex(hdpSampleChain)}: Get proportion of dataset explained (on average) for hdpSampleChain
 
-\item \code{comp_cos_merge}: Get cos.merge setting for hdpSampleChain
+\item \code{comp_cos_merge(hdpSampleChain)}: Get cos.merge setting for hdpSampleChain
 
-\item \code{comp_categ_counts}: Get sample vs category counts for each component
+\item \code{comp_categ_counts(hdpSampleChain)}: Get sample vs category counts for each component
 
-\item \code{comp_dp_counts}: Get sample vs component counts for each DP
+\item \code{comp_dp_counts(hdpSampleChain)}: Get sample vs component counts for each DP
 
-\item \code{comp_categ_distn}: Get mean distribution over data categories for each component
+\item \code{comp_categ_distn(hdpSampleChain)}: Get mean distribution over data categories for each component
 
-\item \code{comp_dp_distn}: Get mean distribution over components for each DP
+\item \code{comp_dp_distn(hdpSampleChain)}: Get mean distribution over components for each DP
+
 }}
-
 \section{Slots}{
 
 \describe{

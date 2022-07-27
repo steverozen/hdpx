@@ -22,11 +22,11 @@ note that the 'items' in parent nodes are the tables of their children
 }
 \section{Methods (by generic)}{
 \itemize{
-\item \code{as.list}: convert to list class
+\item \code{as.list(hdpDP)}: convert to list class
 
-\item \code{numdata}: Get number of data items at this DP.
+\item \code{numdata(hdpDP)}: Get number of data items at this DP.
+
 }}
-
 \section{Slots}{
 
 \describe{
