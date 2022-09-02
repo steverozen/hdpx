@@ -1,6 +1,6 @@
 
 #include "R-utils.h"
-#include "malloc_check.h"
+#include "moreutils.h"
 
 int hdpx_debug;
 
