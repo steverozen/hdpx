@@ -1,6 +1,8 @@
 
 #include "R-utils.h"
-#include "moreutils.h"
+#include "malloc_check.h"
+
+int hdpx_debug;
 
 SEXP rReadListElement(const SEXP list, const char *str) {
   SEXP elmt = R_NilValue;
@@ -12,11 +14,11 @@ SEXP rReadListElement(const SEXP list, const char *str) {
       break;
     }
 
-  if ( elmt == R_NilValue )
-    error("%s missing from list", str);
+    if ( elmt == R_NilValue )
+      error("%s missing from list", str);
 
-  if (hdpx_debug>=3) Rprintf("Read %s.\n",str);
-  return elmt;
+    if (hdpx_debug>=3) Rprintf("Read %s.\n",str);
+    return elmt;
 }
 
 void rWriteListElement(SEXP list, const char *str, SEXP newelement) {
@@ -49,15 +51,15 @@ int *rReadIntVector(SEXP rvec, int number, int shift, int init){
   result = malloc_and_check(sizeof(int)*number);
   copy = INTEGER(rvec);
   for ( ii = 0 ; ii < length(rvec) ; ii++ )
-      result[ii] = copy[ii] + shift;
+    result[ii] = copy[ii] + shift;
   for ( ii = length(rvec) ; ii < number ; ii++ )
-      result[ii] = init;
+    result[ii] = init;
   if (hdpx_debug>=3) {
     Rprintf("Value = ");
     for ( ii = 0 ; ii < number ; ii++ )
       Rprintf("%d ",result[ii]);
     Rprintf("\n");
-    }
+  }
   return result;
 }
 
@@ -69,15 +71,15 @@ double *rReadDoubleVector(SEXP rvec, int number, double shift, double init){
   result = malloc_and_check(sizeof(double)*number);
   copy = REAL(rvec);
   for ( ii = 0 ; ii < length(rvec) ; ii++ )
-      result[ii] = copy[ii] + shift;
+    result[ii] = copy[ii] + shift;
   for ( ii = length(rvec) ; ii < number ; ii++ )
-      result[ii] = init;
+    result[ii] = init;
   if (hdpx_debug>=3) {
     Rprintf("Value = ");
     for ( ii = 0 ; ii < number ; ii++ )
       Rprintf("%g ",result[ii]);
     Rprintf("\n");
-    }
+  }
   return result;
 }
 
