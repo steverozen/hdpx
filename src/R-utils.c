@@ -15,7 +15,7 @@ SEXP rReadListElement(const SEXP list, const char *str) {
   if ( elmt == R_NilValue )
     error("%s missing from list", str);
 
-  if (DEBUG>=3) Rprintf("Read %s.\n",str);
+  if (hdpx_debug>=3) Rprintf("Read %s.\n",str);
   return elmt;
 }
 
@@ -25,7 +25,7 @@ void rWriteListElement(SEXP list, const char *str, SEXP newelement) {
   for ( i = 0; i < length(list); i++ )
     if ( strcmp(CHAR(STRING_ELT(names, i)), str) == 0 ) {
       SET_VECTOR_ELT(list, i, newelement);
-      if (DEBUG>=3) Rprintf("Write %s.\n",str);
+      if (hdpx_debug>=3) Rprintf("Write %s.\n",str);
     }
 }
 
@@ -52,7 +52,7 @@ int *rReadIntVector(SEXP rvec, int number, int shift, int init){
       result[ii] = copy[ii] + shift;
   for ( ii = length(rvec) ; ii < number ; ii++ )
       result[ii] = init;
-  if (DEBUG>=3) {
+  if (hdpx_debug>=3) {
     Rprintf("Value = ");
     for ( ii = 0 ; ii < number ; ii++ )
       Rprintf("%d ",result[ii]);
@@ -72,7 +72,7 @@ double *rReadDoubleVector(SEXP rvec, int number, double shift, double init){
       result[ii] = copy[ii] + shift;
   for ( ii = length(rvec) ; ii < number ; ii++ )
       result[ii] = init;
-  if (DEBUG>=3) {
+  if (hdpx_debug>=3) {
     Rprintf("Value = ");
     for ( ii = 0 ; ii < number ; ii++ )
       Rprintf("%g ",result[ii]);
@@ -87,7 +87,7 @@ SEXP rWriteIntVector(int *var, int len, int shift) {
   int ii;
   for ( ii = 0 ; ii < len ; ii++ )
     copy[ii] = var[ii] + shift;
-  if (DEBUG>=3) {
+  if (hdpx_debug>=3) {
     Rprintf("Value = ");
     for ( ii = 0 ; ii < len ; ii++ )
       Rprintf("%d ",var[ii]);
@@ -104,7 +104,7 @@ SEXP rWriteDoubleVector(double *var, int len, double shift) {
   int ii;
   for ( ii = 0 ; ii < len ; ii++ )
     copy[ii] = var[ii] + shift;
-  if (DEBUG>=3) {
+  if (hdpx_debug>=3) {
     Rprintf("Value = ");
     for ( ii = 0 ; ii < len ; ii++ )
       Rprintf("%g ",var[ii]);

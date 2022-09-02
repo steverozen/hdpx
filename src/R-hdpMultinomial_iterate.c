@@ -11,7 +11,7 @@ SEXP hdpMultinomial_iterate(SEXP hdpin, SEXP numiter, SEXP doconparam, SEXP doli
   docp = asInteger(doconparam);
   dl = asInteger(dolik);
 
-  DEBUG = asInteger(dodebug);
+  hdpx_debug = asInteger(dodebug);
 
   HDP *hdp = rReadHDP(hdpin);
 

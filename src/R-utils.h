@@ -17,14 +17,14 @@ SEXP rWriteDoubleVector(double *var, int len, double shift);
 #define max(x1,x2) ( (x1) < (x2) ? (x2) : (x1) )
 
 #ifndef NODEBUG
-int DEBUG;
-#define rdebug0(num,string)       if(DEBUG>=(num))Rprintf(string);
-#define rdebug1(num,string,a)     if(DEBUG>=(num))Rprintf(string,a);
-#define rdebug2(num,string,a,b)   if(DEBUG>=(num))Rprintf(string,a,b);
-#define rdebug3(num,string,a,b,c) if(DEBUG>=(num))Rprintf(string,a,b,c);
-#define rdebug4(num,string,a,b,c,d) if(DEBUG>=(num))Rprintf(string,a,b,c,d);
+int hdpx_debug;
+#define rdebug0(num,string)       if(hdpx_debug>=(num))Rprintf(string);
+#define rdebug1(num,string,a)     if(hdpx_debug>=(num))Rprintf(string,a);
+#define rdebug2(num,string,a,b)   if(hdpx_debug>=(num))Rprintf(string,a,b);
+#define rdebug3(num,string,a,b,c) if(hdpx_debug>=(num))Rprintf(string,a,b,c);
+#define rdebug4(num,string,a,b,c,d) if(hdpx_debug>=(num))Rprintf(string,a,b,c,d);
 #define rdebugarray(num,string,str,array,length) { \
-  if (DEBUG >= (num)) { \
+  if (hdpx_debug >= (num)) { \
     int ii; \
     Rprintf("%s: ",string); \
     for ( ii = 0 ; ii < length ; ii++) { \
@@ -39,12 +39,12 @@ int DEBUG;
   } \
 }
 #else
-#define rdebug0(num,string)     
-#define rdebug1(num,string,a)     
-#define rdebug2(num,string,a,b)  
+#define rdebug0(num,string)
+#define rdebug1(num,string,a)
+#define rdebug2(num,string,a,b)
 #define rdebug3(num,string,a,b,c)
 #define rdebug4(num,string,a,b,c,d)
-#define rdebugarray(num,string,str,array,length) 
+#define rdebugarray(num,string,str,array,length)
 #endif
 
 #endif
