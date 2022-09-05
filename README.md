@@ -1,18 +1,34 @@
-# hdp
+# hdpx
 R pkg for Hierarchical Dirichlet Process
 
-[![Build Status](https://travis-ci.org/nicolaroberts/hdp.svg?branch=master)](https://travis-ci.org/nicolaroberts/hdp)
+
+The package does mutational signature extraction. This branch of
+of hdpx that was forked from Nicola Roberts's hdp package, and still implements the algorithm from
+Section 4.2.2, "Extracting Consensus Signatures" from
+
+Roberts, N. D. (2018). Patterns of somatic genome rearrangement in human cancer. (PhD Thesis). Cambridge University, Cambridge, England, United Kingdom. Retrieved from https://www.repository.cam.ac.uk/bitstream/handle/1810/275454/Roberts-2018-PhD.pdf
+
+We do not recommend using this version.
+
+## Installation
+
+``` r
+hdpx.version <- "0.1.5.0099"
+if (system.file(package = "hdpx") != "") {
+  if (packageVersion("hdpx") != hdpx.version) {
+    remove.packages("hdpx")
+    remotes::install_github("steverozen/hdpx", ref = "NR-version-plus-fixes")
+  }
+} else {
+  remotes::install_github("steverozen/hdpx", ref = "NR-version-plus-fixes")
+}
+message("hdpx version ", packageVersion("hdpx"))
+stopifnot(packageVersion("hdpx") == hdpx.version)
 
 
-To install, first ensure `devtools` package is installed and the BioConductor repositories are available (run `setRepositories()`). 
-It might take a few minutes to download any missing dependencies and build the vignettes. 
-```R
-devtools::install_github("nicolaroberts/hdp", build_vignettes = TRUE)
 ```
 
-For tutorials, see `browseVignettes("hdp")`.
-
-Works on MacOS and Linux, but may not install on Windows. 
+Information from the original hdp package appears below.
 
 R package to model categorical count data with a hierarchical Dirichlet Process. Includes functions to initialise a HDP of any shape, perform Gibbs sampling of the posterior distribution, and analyse the output. The underlying theory is described by Teh et al. (Hierarchical Dirichlet Processes, Journal of the American Statistical Association, 2006, 101:476). This R package was adapted from open source MATLAB and C code written by Yee Whye Teh and available here http://www.stats.ox.ac.uk/~teh/research/npbayes/npbayes-r21.tgz
 
