@@ -1,8 +1,6 @@
 # hdpx
-R pkg for Hierarchical Dirichlet Process
 
-
-The package does mutational signature extraction. This branch of
+This package does mutational signature extraction. This branch of
 of hdpx that was forked from Nicola Roberts's hdp package, and still implements the algorithm from
 Section 4.2.2, "Extracting Consensus Signatures" from
 
@@ -28,7 +26,7 @@ stopifnot(packageVersion("hdpx") == hdpx.version)
 
 ```
 
-Information from the original hdp package appears below.
+## Information from the original hdp package
 
 R package to model categorical count data with a hierarchical Dirichlet Process. Includes functions to initialise a HDP of any shape, perform Gibbs sampling of the posterior distribution, and analyse the output. The underlying theory is described by Teh et al. (Hierarchical Dirichlet Processes, Journal of the American Statistical Association, 2006, 101:476). This R package was adapted from open source MATLAB and C code written by Yee Whye Teh and available here http://www.stats.ox.ac.uk/~teh/research/npbayes/npbayes-r21.tgz
 
