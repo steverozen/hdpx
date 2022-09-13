@@ -1,4 +1,4 @@
-# Next
+# [ 1.0.5 ]
 * Removed deprecated argument x from extract_components; use sample.chains
   instead.
 * Created default_merge_raw_cluster_args and simplified associated argument
