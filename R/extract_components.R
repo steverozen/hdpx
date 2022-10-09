@@ -85,6 +85,10 @@ cosmergechain <- function(ccc, cdc, threshold = 0.99){
 first_merge <- function(ccc, cdc, threshold = 0.99) {
   ccc <- as.matrix(ccc)
   cdc <- as.matrix(cdc)
+  if (ncol(ccc) == 1) {
+    # Nothing to merge
+    return(list(ccc=ccc, cdc=cdc, clust_label = 1))
+  }
 
   clust_label <- 1:ncol(ccc)
   clust_cos <- lsa::cosine(ccc)
