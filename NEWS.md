@@ -3,6 +3,7 @@
   instead.
 * Created default_merge_raw_cluster_args and simplified associated argument
   lists.
+* Minor bug fix in function `first_merge`.
 
 # [ 1.0.3 ]
 * Fixed(?) issue with multiple definitions of the "DEBUG" global 
