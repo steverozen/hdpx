@@ -50,7 +50,8 @@ Imports:
     reshape2,
     stats,
     beeswarm,
-    parallelDist
+    parallelDist,
+    Rcpp
 Suggests:
     testthat,
     RColorBrewer,
@@ -94,4 +95,4 @@ Collate:
     'xmake.s.R'
     'zzz.R'
 LinkingTo: Rcpp,RcppArmadillo
-RoxygenNote: 7.2.1
+RoxygenNote: 7.3.3
