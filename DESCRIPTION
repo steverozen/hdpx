@@ -7,7 +7,7 @@ Authors@R: c(person("Steve", "Rozen", email="steverozen@gmail.com", role="aut"),
   person("Yee Whye", "Teh", role=c("aut", "cph")))
 Encoding: UTF-8
 Depends:
-    R(>= 4.5)
+    R(>= 4.4)
 biocViews:
 LazyData: true
 Language: en-US
