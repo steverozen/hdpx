@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "R-hdpMultinomial_iterate.h"
 
 SEXP hdpMultinomial_iterate(SEXP hdpin, SEXP numiter, SEXP doconparam, SEXP dolik, SEXP dodebug)

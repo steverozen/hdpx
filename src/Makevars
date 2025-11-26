@@ -1,0 +1,6 @@
+# Valgrind debugging flags
+# Just need debug symbols, no sanitizer flags
+# This file is exluded by .Rbuildignore
+PKG_CFLAGS = -g -O0 -fno-omit-frame-pointer
+PKG_CXXFLAGS = -g -O0 -fno-omit-frame-pointer
+

@@ -1,33 +1,29 @@
 test_that("extract_components-slow-multiF", {
-  if (Sys.getenv("HDPX_LONG") == "") {
-    skip("Sys.setenv(HDPX_LONG=\"Y\") to enable long tests")
+  if (FALSE || Sys.getenv("HDPX_LONG") == "") {
+    # skip("Sys.setenv(HDPX_LONG=\"Y\") to enable long tests")
     # Sys.setenv(HDPX_LONG="Y")
   }
 
   in_env <- new.env()
-  load("tdata/big.chlist.from.ParallelGibbsSample.multiF.Rdata",
-       envir = in_env)
+  load("tdata/big.chlist.from.ParallelGibbsSample.multiF.Rdata", envir = in_env)
 
   reg2 <- new.env()
-  load("tdata/output.big.extract.multiF.p1.Rdata",
-       envir = reg2)
-  load("tdata/output.big.extract.multiF.p2.Rdata",
-       envir = reg2)
-  load("tdata/output.big.extract.multiF.p3.Rdata",
-       envir = reg2)
+  load("tdata/output.big.extract.multiF.p1.Rdata", envir = reg2)
+  load("tdata/output.big.extract.multiF.p2.Rdata", envir = reg2)
+  load("tdata/output.big.extract.multiF.p3.Rdata", envir = reg2)
 
-    ex.com.ret <-
-      extract_components(sample.chains = hdp_multi_chain(in_env$chlist))
+  ex.com.ret <-
+    extract_components(sample.chains = hdp_multi_chain(in_env$chlist))
 
-  ex.com.ret.p1 <- ex.com.ret[c(1:5,7)]
+  ex.com.ret.p1 <- ex.com.ret[c(1:5, 7)]
   ex.com.ret.p2 <- ex.com.ret[[6]]@chains[1:10]
   ex.com.ret.p3 <- ex.com.ret[[6]]@chains[11:20]
 
   if (FALSE) {
-   # To re-generate test data:
-   save(ex.com.ret.p1, file = "tdata/output.big.extract.multiF.p1.Rdata")
-   save(ex.com.ret.p2, file = "tdata/output.big.extract.multiF.p2.Rdata")
-   save(ex.com.ret.p3, file = "tdata/output.big.extract.multiF.p3.Rdata")
+    # To re-generate test data:
+    save(ex.com.ret.p1, file = "tdata/output.big.extract.multiF.p1.Rdata")
+    save(ex.com.ret.p2, file = "tdata/output.big.extract.multiF.p2.Rdata")
+    save(ex.com.ret.p3, file = "tdata/output.big.extract.multiF.p3.Rdata")
   }
 
   expect_equal(ex.com.ret.p1, reg2$ex.com.ret.p1)
@@ -39,7 +35,8 @@ test_that("extract_components-slow-multiF", {
 
   in.com.ret <- interpret_components(ex.com.ret)
 
-  if (FALSE) { # to regenerate test data
+  if (FALSE) {
+    # to regenerate test data
     save(in.com.ret, file = "tdata/output.big.interpret.multiF.Rdata")
   }
 
@@ -47,4 +44,3 @@ test_that("extract_components-slow-multiF", {
   # expect_equal(in.com.ret$low_confidence_components_cdc,
   #              as.matrix(reg3$in.com.ret$low_confidence_components_cdc[, 1:23]))
 })
-

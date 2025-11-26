@@ -3,7 +3,12 @@
 ^data-raw$
 ^\.travis\.yml$
 ^hdpx_.*\.pdf$
-^src/Makevars$
-^R-asan$
-^test-asan\.R$
-^src/test_asan\.cpp$
+^R-valgrind$
+^test-valgrind\.R$
+^valgrind-.*\.log$
+^valgrind-suppressions\.supp$
+^\.clangd$   
+^\.claude$
+^CLAUDE\.md$
+^Rcpp_for_CLAUDE.md$
+^R-valgrind$

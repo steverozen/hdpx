@@ -1,13 +1,13 @@
 Package: hdpx
 Title: Hierarchical Dirichlet process for categorical count data, expanded
-Version: 1.0.5
+Version: 1.0.6
 Authors@R: c(person("Steve", "Rozen", email="steverozen@gmail.com", role="aut"),
   person("Mo", "Liu", email="liumolm@gmail.com", role="aut"),
   person("Nicola", "Roberts", email="nr3@sanger.ac.uk", role=c("aut", "cre")),
   person("Yee Whye", "Teh", role=c("aut", "cph")))
 Encoding: UTF-8
 Depends:
-    R(>= 3.5.0)
+    R(>= 4.5)
 biocViews:
 LazyData: true
 Language: en-US
@@ -50,8 +50,7 @@ Imports:
     reshape2,
     stats,
     beeswarm,
-    parallelDist,
-    Rcpp
+    parallelDist
 Suggests:
     testthat,
     RColorBrewer,

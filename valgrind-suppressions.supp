@@ -1,0 +1,46 @@
+# Valgrind suppressions for R and hdpx
+# These suppress known false positives from R internals
+
+# R's memory pool creates "still reachable" blocks
+{
+   R_alloc_still_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:Rf_allocVector
+}
+
+{
+   R_alloc_still_reachable2
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:Rf_allocVector3
+}
+
+# R's initialization leaves some memory still reachable
+{
+   R_init_still_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:Rf_initialize_R
+}
+
+# PROTECT/UNPROTECT mechanism
+{
+   R_protect_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:R_ProtectWithIndex
+}
+
+# dlopen related
+{
+   dlopen_still_reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:dlopen*
+}

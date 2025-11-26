@@ -2,3 +2,41 @@ notes
 
    ldd /home/steve/github/hdpx/src/hdpx.so | grep -i asan
    Check if hdpx.so links to libasan
+
+## Use valgrind instead:
+
+2. Run tests:
+
+  Interactive:
+  ./R-valgrind
+  # In R:
+  devtools::load_all()
+  # ... run your code ...
+  q()  # Exit
+
+  Automated test:
+  ./R-valgrind < test-valgrind.R
+
+  Quick test:
+  ./R-valgrind -e 'devtools::load_all(); devtools::test()'
+
+  3. View results:
+
+  # Full report
+  cat valgrind-hdpx.log
+
+  # Just leak summary
+  grep -A 20 'LEAK SUMMARY' valgrind-hdpx.log
+
+  # Just errors
+  grep -E '(definitely|indirectly) lost' valgrind-hdpx.log
+
+  What to focus on:
+
+  - Definitely lost: These are real leaks - must fix
+  - Indirectly lost: Memory leaked because it was only referenced by "definitely lost" blocks
+  - Still reachable: Memory not freed but still has pointers (often false positives from R internals - suppressed)
+  - Possibly lost: May or may not be real leaks
+
+  The custom valgrind-suppressions.supp file will filter out common R internal "leaks" so you can focus on real
+  issues in your C code.

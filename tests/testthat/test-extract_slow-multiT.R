@@ -1,30 +1,23 @@
 test_that("extract_components-slow-multiT", {
-  if (Sys.getenv("HDPX_LONG") == "") {
-    skip("Sys.setenv(HDPX_LONG=\"Y\") to enable long tests")
+  if (FALSE || Sys.getenv("HDPX_LONG") == "") {
+    # skip("Sys.setenv(HDPX_LONG=\"Y\") to enable long tests")
   }
 
   in_env <- new.env()
-  load("tdata/big.chlist.from.ParallelGibbsSample.multiT.Rdata",
-       envir = in_env)
+  load("tdata/big.chlist.from.ParallelGibbsSample.multiT.Rdata", envir = in_env)
 
   reg2 <- new.env()
-  load("tdata/output.big.extract.multiT.p1.Rdata",
-       envir = reg2)
-  load("tdata/output.big.extract.multiT.p2.Rdata",
-       envir = reg2)
-  load("tdata/output.big.extract.multiT.p3.Rdata",
-       envir = reg2)
-  load("tdata/output.big.extract.multiT.p4.Rdata",
-       envir = reg2)
-
+  load("tdata/output.big.extract.multiT.p1.Rdata", envir = reg2)
+  load("tdata/output.big.extract.multiT.p2.Rdata", envir = reg2)
+  load("tdata/output.big.extract.multiT.p3.Rdata", envir = reg2)
+  load("tdata/output.big.extract.multiT.p4.Rdata", envir = reg2)
 
   ex.com.ret <-
     extract_components(sample.chains = hdp_multi_chain(in_env$chlist))
-  ex.com.ret.p1 <- ex.com.ret[c(1:5,7)]
+  ex.com.ret.p1 <- ex.com.ret[c(1:5, 7)]
   ex.com.ret.p2 <- ex.com.ret[[6]]@chains[1:6]
   ex.com.ret.p3 <- ex.com.ret[[6]]@chains[7:13]
   ex.com.ret.p4 <- ex.com.ret[[6]]@chains[14:20]
-
 
   # To re-generate test data
   if (FALSE) {
@@ -42,7 +35,7 @@ test_that("extract_components-slow-multiT", {
   # Test based on a simple list hdp sample chains
   ex.com.ret <-
     extract_components(sample.chains = in_env$chlist)
-  ex.com.ret.p1 <- ex.com.ret[c(1:5,7)]
+  ex.com.ret.p1 <- ex.com.ret[c(1:5, 7)]
   ex.com.ret.p2 <- ex.com.ret[[6]]@chains[1:6]
   ex.com.ret.p3 <- ex.com.ret[[6]]@chains[7:13]
   ex.com.ret.p4 <- ex.com.ret[[6]]@chains[14:20]
@@ -58,10 +51,10 @@ test_that("extract_components-slow-multiT", {
 
   in.com.ret <- interpret_components(ex.com.ret)
 
-  if (FALSE) { # Regenerate test data
+  if (FALSE) {
+    # Regenerate test data
     save(in.com.ret, file = "tdata/output.big.interpret.multiT.Rdata")
   }
 
   expect_equal(in.com.ret, reg3$in.com.ret)
 })
-

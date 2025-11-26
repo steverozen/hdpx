@@ -61,7 +61,7 @@ SEXP rWriteSSVector(int numss, SS *ss) {
   pr = INTEGER(result);
   for ( ii = 0 ; ii < numss ; ii++ )
     pr[ii] = ss[ii];
-  R_Free(ss);
+  free(ss);
   return result;
 }
 
@@ -80,7 +80,7 @@ HH rReadHH(const SEXP vector) {
 }
 
 void FreeHH(HH hh) {
-  R_Free(hh.eta);
+  free(hh.eta);
 }
 
 QQ *rReadQQVector(HH hh, const SEXP qqmatrix, int maxnum) {
@@ -120,15 +120,15 @@ SEXP rWriteQQVector(HH hh, int nn, int maxnum, QQ *qq) {
   for ( jj = 0 ; jj < nn ; jj ++ ) {
     for ( ii = 0 ; ii < hh.numdim ; ii++ )
       pr[ii+jj*hh.numdim] = qq[jj][ii+1];
-    R_Free(qq[jj]);
+    free(qq[jj]);
     rdebug1(4,"%d ",jj);
   }
   rdebug0(3,"Free qq: ");
   for ( jj = nn ; jj < maxnum ; jj ++ ) {
-    R_Free(qq[jj]);
+    free(qq[jj]);
     rdebug1(4,"%d ",jj);
   }
-  R_Free(qq);
+  free(qq);
   UNPROTECT(1);
   rdebug0(3,"\n");
   return result;

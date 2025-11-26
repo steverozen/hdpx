@@ -10,8 +10,8 @@ extract_components(
 )
 }
 \arguments{
-\item{sample.chains}{An \code{\link{hdpSampleChain-class}} or \
-code{\link{hdpSampleMulti-class}} object or a list of
+\item{sample.chains}{An \code{\link{hdpSampleChain-class}} or
+\code{\link{hdpSampleMulti-class}} object or a list of
 \code{\link{hdpSampleChain-class}} objects.}
 
 \item{merge.raw.cluster.args}{See
