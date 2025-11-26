@@ -1,0 +1,4 @@
+#!/bin/bash
+# Wrapper to run R with AddressSanitizer preloaded
+export LD_PRELOAD=/usr/lib/gcc/x86_64-linux-gnu/13/libasan.so
+exec R "$@"

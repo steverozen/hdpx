@@ -22,11 +22,31 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// test_asan_overflow
+void test_asan_overflow();
+RcppExport SEXP _hdpx_test_asan_overflow() {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    test_asan_overflow();
+    return R_NilValue;
+END_RCPP
+}
+// test_asan_use_after_free
+void test_asan_use_after_free();
+RcppExport SEXP _hdpx_test_asan_use_after_free() {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    test_asan_use_after_free();
+    return R_NilValue;
+END_RCPP
+}
 
 RcppExport SEXP hdpMultinomial_iterate(SEXP, SEXP, SEXP, SEXP, SEXP);
 
 static const R_CallMethodDef CallEntries[] = {
     {"_hdpx_cosCpp", (DL_FUNC) &_hdpx_cosCpp, 1},
+    {"_hdpx_test_asan_overflow", (DL_FUNC) &_hdpx_test_asan_overflow, 0},
+    {"_hdpx_test_asan_use_after_free", (DL_FUNC) &_hdpx_test_asan_use_after_free, 0},
     {"hdpMultinomial_iterate", (DL_FUNC) &hdpMultinomial_iterate, 5},
     {NULL, NULL, 0}
 };

@@ -3,3 +3,7 @@
 ^data-raw$
 ^\.travis\.yml$
 ^hdpx_.*\.pdf$
+^src/Makevars$
+^R-asan$
+^test-asan\.R$
+^src/test_asan\.cpp$

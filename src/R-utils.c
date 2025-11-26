@@ -95,7 +95,7 @@ SEXP rWriteIntVector(int *var, int len, int shift) {
       Rprintf("%d ",var[ii]);
     Rprintf("\n");
   }
-  Free(var);
+  R_Free(var);
   UNPROTECT(1);
   return result;
 }
@@ -112,7 +112,7 @@ SEXP rWriteDoubleVector(double *var, int len, double shift) {
       Rprintf("%g ",var[ii]);
     Rprintf("\n");
   }
-  Free(var);
+  R_Free(var);
   UNPROTECT(1);
   return result;
 }

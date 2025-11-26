@@ -56,5 +56,5 @@ void rWriteConparamVector(SEXP result, CONPARAM *cpnew) {
     rWriteListElement(cplistelt,"totalnt",rWriteIntVector(cp->totalnt,cp->numdp,0));
     UNPROTECT(1);
   }
-  Free(cpnew);
+  R_Free(cpnew);
 }

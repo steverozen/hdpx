@@ -1,0 +1,4 @@
+# AddressSanitizer flags for debugging
+PKG_CFLAGS = -fsanitize=address -fno-omit-frame-pointer
+PKG_CXXFLAGS = -fsanitize=address -fno-omit-frame-pointer
+PKG_LIBS = -fsanitize=address

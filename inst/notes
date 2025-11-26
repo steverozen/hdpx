@@ -1,0 +1,4 @@
+notes
+
+   ldd /home/steve/github/hdpx/src/hdpx.so | grep -i asan
+   Check if hdpx.so links to libasan

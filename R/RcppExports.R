@@ -5,3 +5,11 @@ cosCpp <- function(Xr) {
     .Call('_hdpx_cosCpp', PACKAGE = 'hdpx', Xr)
 }
 
+test_asan_overflow <- function() {
+    invisible(.Call('_hdpx_test_asan_overflow', PACKAGE = 'hdpx'))
+}
+
+test_asan_use_after_free <- function() {
+    invisible(.Call('_hdpx_test_asan_use_after_free', PACKAGE = 'hdpx'))
+}
+

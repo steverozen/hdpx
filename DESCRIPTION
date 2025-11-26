@@ -83,6 +83,7 @@ Collate:
     'hdp_prior_init.R'
     'hdp_quick_init.R'
     'hdp_setdata.R'
+    'hdpx-package.R'
     'interpret_components.R'
     'iterate.R'
     'new_diagnostic_plot_functions.R'
