@@ -6,6 +6,14 @@ To install, first ensure that the `remotes` package is
 installed and the BioConductor repositories 
 are available (run `setRepositories()` and choose the BioC items). 
 It might take a few minutes to download any missing dependencies. 
+
+To instal the latest version that fixes the compile-time problem
+with the previous Rcpp Free function:
+```R
+remotes::install_github(repo = "steverozen/hdpx", ref="v1.0.6-branch")
+```
+This has not been extensively tested yet.
+
 To install the latest stable version:
 ```R
 remotes::install_github(repo = "steverozen/hdpx")
