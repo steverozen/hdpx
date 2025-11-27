@@ -329,6 +329,10 @@ extract_components <- function(
   dataframe.normed <- apply(dataframe, 2, function(x) x / sum(x))
   cosine.dist.df <-
     parallelDist::parallelDist(t(dataframe.normed), method = "cosine")
+  if (length(cosine.dist.df) == 0) {
+    message("length(cosine.dist.df) == 0 in hdpx:::extract_components")
+    message("Please save the input for further debugging")
+  }
 
   cosine.dist.hctree.diana <- cluster::diana(x = cosine.dist.df, diss = T)
   cosine.dist.hctree <- stats::as.hclust(cosine.dist.hctree.diana)
