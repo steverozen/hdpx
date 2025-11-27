@@ -1,7 +1,7 @@
 # [ 1.0.6 ]
 * Replaced Free (retired Rccp function) with free
 * Added some infra for testing with valgrind
-* Only tested on R 4.5.2; > 4.4 is a guess to be tested
+* Tested on 4.4.0 and 4.5.3
 
 # [ 1.0.5 ]
 * Removed deprecated argument x from extract_components; use sample.chains
