@@ -338,14 +338,12 @@ extract_components <- function(
   cosine.dist.df <-
     parallelDist::parallelDist(t(dataframe.normed), method = "cosine")
   if (length(cosine.dist.df) == 0) {
-    message("length(cosine.dist.df) == 0 in hdpx:::extract_components")
-    message("Please save the input for further debugging")
-    # browser()
+    # This is what used to generate the error:
+    # Error in lower.to.upper.tri.inds(n) : 'n' must be >= 2
     # See below for comments on the types of spectrum.matrix,
     # dp.matrix, etc.
     spectrum.matrix = dataframe
     spectrum.stats = data.frame(Group.1 = 1, x = 1)
-
     spectrum.cdc = dp.matrix
   } else {
     cosine.dist.hctree.diana <- cluster::diana(x = cosine.dist.df, diss = T)
