@@ -340,7 +340,7 @@ extract_components <- function(
   if (length(cosine.dist.df) == 0) {
     message("length(cosine.dist.df) == 0 in hdpx:::extract_components")
     message("Please save the input for further debugging")
-    browser()
+    # browser()
     # See below for comments on the types of spectrum.matrix,
     # dp.matrix, etc.
     spectrum.matrix = dataframe

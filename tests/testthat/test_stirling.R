@@ -1,18 +1,21 @@
 test_that("simple test of stirling numbers", {
   sfn <- xmake.s()
-  expect_equal(sfn(5), c(0.48, 1.00, 0.70, 0.20, 0.02),
-               check.attributes = FALSE)
-  expect_equal(sfn(0), 1, chec.attributes = FALSE)
+  expect_equal(
+    sfn(5),
+    c(0.48, 1.00, 0.70, 0.20, 0.02),
+    ignore_attr = TRUE
+  )
+  expect_equal(sfn(0), 1)
 })
 
 test_that("stirling numbers; have trailing vector of zeros", {
   sfn <- xmake.s()
   foo <- sfn(200)
   expect_equal(min(which(foo == 0)), 186)
-  expect_equal(foo[15], 0.0007595248)
+  expect_equal(foo[15], 0.000759524820472)
   foo <- sfn(220)
   expect_equal(min(which(foo == 0)), 191)
-  expect_equal(foo[15], 0.000964656)
+  expect_equal(foo[15], 0.000964655955726)
 })
 
 test_that("randnumtable", {
@@ -24,8 +27,7 @@ test_that("randnumtable", {
   #                     c(7068, 6864, 7207, 7050, 7039, 0))
   # assign("stir.closure.tests", xmake.s(), .GlobalEnv)
   set.seed(1066)
-  bar <- randnumtable(rep(1, 6) / 6,
-                      c(7068, 6864, 7207, 7050, 7039, 0))
+  bar <- randnumtable(rep(1, 6) / 6, c(7068, 6864, 7207, 7050, 7039, 0))
   # rm("stir.closure", envir = .GlobalEnv)
   # expect_equal(foo, c(2, 2, 1, 3, 3, 0))
   expect_equal(bar, c(2, 2, 1, 3, 3, 0))

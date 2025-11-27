@@ -52,7 +52,7 @@ Imports:
     beeswarm,
     parallelDist
 Suggests:
-    testthat,
+    testthat (>= 3.0.0),
     RColorBrewer,
     knitr,
     rmarkdown,
@@ -96,3 +96,4 @@ Collate:
     'zzz.R'
 LinkingTo: Rcpp,RcppArmadillo
 RoxygenNote: 7.3.3
+Config/testthat/edition: 3
