@@ -5,6 +5,8 @@ test_that("edge_case_only_1_cluster", {
       3
     )]
 
+  options(error = browser)
+  options(error = recover)
   retvalx <- RunHdpxParallel(
     input.catalog = degenerate_input_catalog,
     CPU.cores = 1,
