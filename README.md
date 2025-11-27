@@ -8,7 +8,9 @@ are available (run `setRepositories()` and choose the BioC items).
 It might take a few minutes to download any missing dependencies. 
 
 To instal the latest version that fixes the compile-time problem
-with the previous Rcpp Free function:
+with the previous Rcpp Free function (problem compiling hdpx.so)
+and the problem that generated
+`Error in lower.to.upper.tri.inds(n) : 'n' must be >= 2` use:
 ```R
 remotes::install_github(repo = "steverozen/hdpx", ref="v1.0.6-branch")
 ```
