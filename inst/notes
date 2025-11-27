@@ -40,3 +40,33 @@ notes
 
   The custom valgrind-suppressions.supp file will filter out common R internal "leaks" so you can focus on real
   issues in your C code.
+
+
+
+
+  # Find clusters composed of highly similar aggregated raw clusters
+    clusters <-
+      dendextend::cutree(
+        cosine.dist.hctree,
+        h = 1 - merge.raw.cluster.args$clustering.cutoff
+      )
+## mapping from integers as strings to integers, e.g
+# "1", "2" "3" -> 1 2 1
+# 
+
+    spectrum.df <- merge_cols(as.matrix(dataframe), clusters)
+# dataframe is a matrix,array; spectrum.df is a matrix,array
+# colnames are integers as strings e.g. c("1", "2")
+
+    spectrum.stats <- aggregate(stats.dataframe[, 2], by = list(clusters), sum)
+# spectrum.stats is a data.frame with 2 columns, "Group.1" and "x"
+# Group1 seems to be the indices of the clusters, not sure what x is
+
+
+    
+    spectrum.cdc <- merge_cols(as.matrix(dp.dataframe), clusters)
+    ## dp.dataframe is a matrix,array, colnames sames as names
+    # clusters rownames integers as strings; spectrum.cdc has
+    # same number of rows and rownames, number of columns is
+    # number of unique values in clusters
+    

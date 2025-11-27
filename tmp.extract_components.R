@@ -277,7 +277,7 @@ extract_components <- function(
   ))
 
   stats.dataframe <- data.frame(matrix(nrow = 0, ncol = 2))
-
+  browser()
   dp.dataframe <- each.chain.noise.cdc <- data.frame(matrix(
     nrow = ndp,
     ncol = 0
@@ -325,7 +325,7 @@ extract_components <- function(
       by = list(clust_label),
       sum
     )
-    dp.dataframe <- merge_cols(as.matrix(dp.dataframe), clust_label)
+    dp.matrix <- merge_cols(as.matrix(dp.dataframe), clust_label)
   }
 
   dataframe.normed <- apply(dataframe, 2, function(x) x / sum(x))
@@ -339,33 +339,34 @@ extract_components <- function(
     # dp.matrix, etc.
     spectrum.matrix = dataframe
     spectrum.stats = data.frame(Group.1 = 1, x = 1)
+    spectrum.cdc = dp.matrix
+  } else {
+    cosine.dist.hctree.diana <- cluster::diana(x = cosine.dist.df, diss = T)
+    cosine.dist.hctree <- stats::as.hclust(cosine.dist.hctree.diana)
 
-    spectrum.cdc = dp.dataframe
+    # Find clusters composed of highly similar aggregated raw clusters
+    clusters <-
+      dendextend::cutree(
+        cosine.dist.hctree,
+        h = 1 - merge.raw.cluster.args$clustering.cutoff
+      )
+    # clusters is a mapping from integers as strings to integers, e.g
+    # "1", "2" "3" -> 1 2 1
+
+    spectrum.matrix <- merge_cols(dataframe, clusters)
+    # spectrum.matrix is a matrix,array, with colnames
+    # integers as strings, e.g. "1", "2". These are the
+    # range of clusters (number of unique values in clusters)
+    # dataframe is also matrix,array; number of rows is the
+    # number of mutation types, number of columns is the
+    # the number of proto-signatures to be clustered
+
+    spectrum.stats <- aggregate(stats.dataframe[, 2], by = list(clusters), sum)
+    # spectrum.stats is a data.frame with 2 columns, "Group.1" and "x"
+    # Group1 seems to be the indices of the clusters
+
+    spectrum.cdc <- merge_cols(as.matrix(dp.dataframe), clusters)
   }
-
-  cosine.dist.hctree.diana <- cluster::diana(x = cosine.dist.df, diss = T)
-  cosine.dist.hctree <- stats::as.hclust(cosine.dist.hctree.diana)
-
-  # Find clusters composed of highly similar aggregated raw clusters
-  clusters <-
-    dendextend::cutree(
-      cosine.dist.hctree,
-      h = 1 - merge.raw.cluster.args$clustering.cutoff
-    )
-  spectrum.matrix <- merge_cols(as.matrix(dataframe), clusters)
-  # spectrum.matrix is a matrix,array, with colnames
-  # integers as strings, e.g. "1", "2". These are the
-  # range of clusters (number of unique values in clusters)
-  # dataframe is also matrix,array; number of rows is the
-  # number of mutation types, number of columns is the
-  # the number of proto-signatures to be clustered
-
-  spectrum.stats <- aggregate(stats.dataframe[, 2], by = list(clusters), sum)
-  # spectrum.stats is a data.frame with 2 columns, "Group.1" and "x"
-  # Group1 seems to be the indices of the clusters
-
-  spectrum.cdc <- merge_cols(as.matrix(dp.dataframe), clusters)
-
   return(
     invisible(
       list(
