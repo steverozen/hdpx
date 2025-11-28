@@ -1,7 +1,7 @@
 # [ 1.0.6 ]
 * Replaced Free (retired Rccp function) with free
 * Added some infra for testing with valgrind
-* Trying to correct error: Error in lower.to.upper.tri.inds(n) : 'n' must be >= 2
+* Corrected: Error in lower.to.upper.tri.inds(n) : 'n' must be >= 2
 * Tested on 4.4.0 and 4.5.3
 
 # [ 1.0.5 ]
