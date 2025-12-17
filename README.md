@@ -20,6 +20,18 @@ To install the latest stable version:
 ```R
 remotes::install_github(repo = "steverozen/hdpx")
 ```
+If you want to install from the .tar.gz, you can get it here:
+https://github.com/steverozen/hdpx/raw/refs/heads/v1.0.6-branch/inst/hdpx_1.0.6.tar.gz,
+then
+```r
+install.packages("hdpx_1.0.6.tar.gz", repos = NULL, type = "source")
+```
+To test the installed package:
+```r
+library(hdpx)
+hdp_init(ppindex=0, cpindex=1, hh=rep(1, 6), alphaa=rep(1, 3), alphab=rep(2, 3))
+```
+
 
 If you want to use this package for mutational signature discovery,
 you probably want to start with https://github.com/steverozen/mSigHdp,
